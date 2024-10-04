@@ -4,8 +4,8 @@
 
     @csrf
     
-    email:
-    <input type="text" name="email">
+    Kode Vendor:
+    <input type="text" name="kode_vendor">
 
     <br>
     <br>
