@@ -17,7 +17,8 @@ class LoginController extends Controller
         else {
             $data = [
                 'kode_vendor' => $req->kode_vendor,
-                'nama_perusahaan' => $refVendor->nama_perusahaan
+                'nama_perusahaan' => $refVendor->nama_perusahaan,
+                'kode_jenis_vendor' => $refVendor->kode_jenis_vendor,
             ];
             session($data);
         }
