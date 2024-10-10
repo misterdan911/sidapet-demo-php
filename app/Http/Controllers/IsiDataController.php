@@ -21,13 +21,27 @@ class IsiDataController extends Controller
         }
 
         $mainStep = [];
+        $mainStepCount = 1;
+        $mainLastIndex = count($refKatDokumenVendor) - 1;
+
         $subStep = [];
+
+        $isLastStep = false;
 
         foreach ($refKatDokumenVendor as $i =>  $data)
         {
+
+            if ($i == $mainLastIndex) {
+                $isLastStep = true;
+            }
+
             $mainStep[] = [
                 'nama_kategori' => $data->nama_kategori,
+                'stepCount' => $mainStepCount,
+                'isLastStep' => $isLastStep,
             ];
+
+            $mainStepCount++;
 
             if (($data->kode_kat_dokumen_vendor == $kode_kat_dokumen_vendor) && ($data->is_has_sub == true)) {
                 $refKatDokumenVendor2 = RefKatDokumenVendor::where('main_kat', $kode_kat_dokumen_vendor)
@@ -42,13 +56,14 @@ class IsiDataController extends Controller
             }
         }
 
-        $response = [
-            'data' => [
-                'mainStep' => $mainStep,
-                'subStep' => $subStep,
-            ]
+        $data = [
+            'mainSteps' => $mainStep,
+            'subSteps' => $subStep,
         ];
 
-        dd($response);
+        // dd($data);
+
+        return view('maincontent/isidata', $data);
+
     }
 }

@@ -12,6 +12,6 @@ class DashboardController extends Controller
             'nama_perusahaan' => session('nama_perusahaan')
         ];
 
-        return view('dashboard');
+        return view('maincontent/dashboard');
     }
 }
