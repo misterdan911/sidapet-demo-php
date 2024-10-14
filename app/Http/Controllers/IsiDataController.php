@@ -86,6 +86,7 @@ class IsiDataController extends Controller
                 'nama_item' => $itemTanya->nama_item,
                 'tipe_input' => $itemTanya->tipe_input,
                 'metadata' => $itemTanya->metadata,
+                'keterangan' => $itemTanya->keterangan,
             ];
         }
 
@@ -95,7 +96,7 @@ class IsiDataController extends Controller
             'itemTanya' => $arrItemTanya,
         ];
 
-        dd($data);
+        // dd($data);
 
         return view('maincontent/isidata', $data);
     }
