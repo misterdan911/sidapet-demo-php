@@ -87,6 +87,7 @@ class IsiDataController extends Controller
                 'tipe_input' => $itemTanya->tipe_input,
                 'metadata' => $itemTanya->metadata,
                 'keterangan' => $itemTanya->keterangan,
+                'isi' => "Not Implemented",
             ];
         }
 
